@@ -346,7 +346,7 @@ namespace Algoim
 
     inline Real sech(Real alpha)
     {
-        return 1.0/std::cosh(alpha);
+        return 1.0/cosh(alpha);
     }
 
     template<int N>

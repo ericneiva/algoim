@@ -18,6 +18,15 @@
 #include <cstdio>
 #endif
 
+// Typedefs for Real
+#if defined(ALGOIM_QDREAL)
+typedef qd_real Real;
+#elif defined(ALGOIM_DDREAL)
+typedef dd_real Real;
+#else
+typedef double Real;
+#endif
+
 // If using QD, inject some of its functions into the std namespace
 #ifdef ALGOIM_HPREAL
 namespace std
