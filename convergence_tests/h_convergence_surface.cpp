@@ -5,15 +5,6 @@
 #include <fstream>
 #include <algoim_quad.hpp>
 
-// Define PI
-#if defined(ALGOIM_QDREAL)
-inline static qd_real pi() { return qd_real::_pi; }
-#elif defined(ALGOIM_DDREAL)
-inline static dd_real pi() { return dd_real::_pi; }
-#else
-inline static double pi() { return std::atan(1)*4; }
-#endif
-
 template<int N>
 struct Ellipsoid
 {
