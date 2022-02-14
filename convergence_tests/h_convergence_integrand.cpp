@@ -130,7 +130,7 @@ int main(int argc, char* argv[])
 
     std::vector< std::vector<Algoim::Real> > err_array;
     std::vector<Algoim::Real> c_err_array;
-/*     Algoim::Real exact = qd_real("6.897665194490618059924850963768989519102402631696"); */
+/*     Algoim::Real exact = qd_real("6.897665194490618059924850963768989519102402631696"); Section 4.2 */
 /*     Algoim::Real exact = qd_real("692.08904849392541936112799180498941339971229318373875"); // Quadratic */
     Algoim::Real exact = qd_real("6875.4721411318403379657058935876917037427668125972046456831796882454"); // Quartic
     Algoim::Real err = 0;
