@@ -688,22 +688,17 @@ namespace Algoim
     }
 
     template<int N>
-    void get_quadrature_nodes(const QuadratureRule<N>& q, std::vector<std::vector<Real>> &n, int np, int dim)
+    void fill_quadrature(const QuadratureRule<N>& q, std::vector<std::vector<Real>>& x, std::vector<Real>& w, int np, int dim)
     {
         for (int i = 0; i < np; ++i){
+            w[i] = q.nodes[i].w;
             const Real* d = q.nodes[i].x.data();
             for (int j = 0; j < dim; ++j){
-                n[i][j] = d[j];
+                x[i][j] = d[j];
             }
         }
     }
 
-    template<int N>
-    void get_quadrature_weights(const QuadratureRule<N>& q, Real* w, int np)
-    {
-        for (int i = 0; i < np; ++i)
-            w[i] = q.nodes[i].w;
-    }
 } // namespace Algoim
 
 #endif
