@@ -647,7 +647,7 @@ namespace algoim
             hyperrectangle, i.e., {phi < 0}, intersected with xrange, intersected with the face
             {x(dim) == xrange(side)(dim)}.
        - side is used only when 0 <= dim && dim < N and specifies which side of the hyperrectangle to restrict
-         to, either side == 0 or side == 1 for the “left” or “right” face, respectively (with normal pointing
+         to, either side == 0 or side == 1 for the ï¿½leftï¿½ or ï¿½rightï¿½ face, respectively (with normal pointing
          in the direction of the dim-th axis).
        - qo specifies the degree of the underlying one-dimensional Gaussian quadrature scheme and must satisfy
          1 <= qo && qo <= 10.
@@ -684,6 +684,25 @@ namespace algoim
         }
         return q;
     }
-} // namespace algoim
+
+    template<int N>
+    int number_of_points(const QuadratureRule<N>& q)
+    {
+        return size(q.nodes);
+    }
+
+    template<int N>
+    void fill_quadrature(const QuadratureRule<N>& q, std::vector<std::vector<real>>& x, std::vector<real>& w, int np, int dim)
+    {
+        for (int i = 0; i < np; ++i){
+            w[i] = q.nodes[i].w;
+            const real* d = q.nodes[i].x.data();
+            for (int j = 0; j < dim; ++j){
+                x[i][j] = d[j];
+            }
+        }
+    }
+
+} // namespace Algoim
 
 #endif
